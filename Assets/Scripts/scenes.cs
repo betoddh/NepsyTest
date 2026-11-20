@@ -44,5 +44,6 @@ public class scenes : MonoBehaviour
         scenesPanel.SetActive(false);
         instructionsPanel.SetActive(false);
         startPanel.SetActive(false);
+        GlobalVariables.startSound = true;
     }
 }
