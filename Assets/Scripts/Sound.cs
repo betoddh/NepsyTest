@@ -12,6 +12,6 @@ public class Sound : MonoBehaviour
         "thing", "soon", "rock", "late", "low", "now", "chance"
     };
 
-    private string[] wordsRandom = 
+    private string[] wordsRandom = { };
 
 }
