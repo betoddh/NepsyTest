@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Sound : MonoBehaviour
@@ -14,14 +16,24 @@ public class Sound : MonoBehaviour
 
     private string[] wordRand = new string[144];
 
+    public AudioSource audioSource;
+
+    Dictionary<string, AudioClip> audios = new Dictionary<string, AudioClip>();
+
     void Start()
     {
+        AudioClip[] clips = Resources.LoadAll<AudioClip>("Audios");
+
+        foreach (AudioClip clip in clips)
+        {
+            audios.Add(clip.name.ToLower(), clip);
+        }
+
         int n;
         for (int i = 0; i < wordRand.Length; i++)
         {
             n = Random.Range(0, words.Length);
             wordRand[i] = words[n];
-            Debug.Log(wordRand[i]);
         }
 
         for (int i = 0;i < 30; i++)
@@ -36,7 +48,6 @@ public class Sound : MonoBehaviour
             );
 
             wordRand[n] = "red";
-            Debug.Log(n);
         }
     }
 
@@ -44,14 +55,28 @@ public class Sound : MonoBehaviour
     {
         if (GlobalVariables.startSound)
         {
-            startSound();
+            StartCoroutine(startSound());
             GlobalVariables.startSound= false;
         }
     }
 
-    private void startSound()
+    private IEnumerator startSound()
     {
+        for(int i = 0; i < wordRand.Length; i++)
+        {
+            if(i != 0 && wordRand[i-1] != "red")
+            {
+                GlobalVariables.isRed = false;
+            }
 
+            if(wordRand[i] == "red")
+            {
+                GlobalVariables.isRed = true;
+            }
+            audioSource.PlayOneShot(audios[wordRand[i]]);
+            Debug.Log(GlobalVariables.isRed);
+            yield return new WaitForSeconds(2f);
+        }
     }
 
 }
