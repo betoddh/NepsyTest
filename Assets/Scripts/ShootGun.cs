@@ -40,6 +40,7 @@ public class ShootGun : MonoBehaviour
     private void Fire()
     {
         Vector3 spawnPos = canon.TransformPoint(offset);
+        Debug.DrawRay(canon.position, canon.forward * 10f, Color.green, 10f);
         GameObject bullet = Instantiate(bulletPrefab, spawnPos, canon.rotation);
 
         if (bullet.TryGetComponent(out Collider bulletCol))

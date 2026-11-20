@@ -124,8 +124,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8265308190309113051, guid: 808740b022c9a3c4c98b67900f605330, type: 3}
   m_PrefabInstance: {fileID: 243941126}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &176642100
-MeshCollider:
+--- !u!65 &176642100
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,10 +142,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1453043773871479701, guid: 38c88e570311a2141920c22be7f01df0, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 91.11351, y: 15.689516, z: 93.12956}
+  m_Center: {x: 2.7864246, y: -5, z: -0.7911949}
 --- !u!1001 &243941126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,7 +573,7 @@ MonoBehaviour:
   trig: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   canon: {fileID: 1709830654}
   bulletPrefab: {fileID: 3004911504272832078, guid: c3e95f9026c6d334ab2e7fc137ff2beb, type: 3}
-  velocity: 50
+  velocity: 100
   ali: 5
   offset: {x: 0, y: 0, z: 0.1}
 --- !u!1 &1709830653
