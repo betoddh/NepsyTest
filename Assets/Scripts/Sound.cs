@@ -74,7 +74,6 @@ public class Sound : MonoBehaviour
                 GlobalVariables.isRed = true;
             }
             audioSource.PlayOneShot(audios[wordRand[i]]);
-            Debug.Log(GlobalVariables.isRed);
             yield return new WaitForSeconds(2f);
         }
     }

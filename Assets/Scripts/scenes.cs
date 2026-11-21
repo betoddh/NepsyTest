@@ -22,7 +22,7 @@ public class scenes : MonoBehaviour
 
     public void advance()
     {
-        instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the GREEN duck. When you hear the word GREEN, you must shoot the RED duck. Finally, when you hear the word BLUE, you must shoot the BLUE duck. When you hear any other word, do nothing. To shoot, press the trigger.";
+        instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the YELLOW duck. When you hear the word YELLOW, you must shoot the RED duck. Finally, when you hear the word BLUE, you must shoot the BLUE duck. When you hear any other word, do nothing. To shoot, press the trigger.";
         sceneNumber=2;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
