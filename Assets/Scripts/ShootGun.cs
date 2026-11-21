@@ -1,60 +1,87 @@
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class ShootGun : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //trigger detection variable
     public InputActionReference trig;
-    //transform of the canon aka point of the barrel
-    public Transform canon;
 
-    // the prefab of the bullet
-    public GameObject bulletPrefab;
+    [SerializeField] private Transform barrel;
+    [SerializeField] private float range = 200.0f;
+    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private LayerMask hitHit = ~0;
 
-    //velocity of the bullet
-    public float velocity = 100.00f;
+    static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
+    static readonly int ColorId = Shader.PropertyToID("_Color");
 
-    //bullet life span
-    public float ali = 5.0f;
-
-    public Vector3 offset;
-
+    public bool drawDebug = true;
+    private float lastShotTime;
 
     private void OnEnable()
     {
         trig.action.Enable();
-        trig.action.performed += pressed;
+        trig.action.performed += Pressed;
     }
 
     private void OnDisable()
     {
-        trig.action.performed -= pressed;
+        trig.action.performed -= Pressed;
     }
 
-    private void pressed(InputAction.CallbackContext context)
+    private void Pressed(InputAction.CallbackContext ctx)
     {
+        if (Time.time - lastShotTime < fireRate) return;
+        lastShotTime = Time.time;
         Fire();
     }
 
     private void Fire()
     {
-        Vector3 spawnPos = canon.TransformPoint(offset);
-        Debug.DrawRay(canon.position, canon.forward * 10f, Color.green, 10f);
-        GameObject bullet = Instantiate(bulletPrefab, spawnPos, canon.rotation);
+        Vector3 origin = barrel.position;
+        Vector3 dir = barrel.forward;
 
-        if (bullet.TryGetComponent(out Collider bulletCol))
+        if (Physics.Raycast(origin, dir, out RaycastHit hit, range, hitHit,
+                            QueryTriggerInteraction.Ignore))
         {
-            foreach (Collider c in transform.root.GetComponentsInChildren<Collider>())
-                Physics.IgnoreCollision(bulletCol, c);
+            OnHit(hit);
+            if (drawDebug) Debug.DrawLine(origin, hit.point, Color.blue, 2f);
+        }
+        else if (drawDebug)
+        {
+            Debug.DrawRay(origin, dir * range, Color.green, 2f);
+        }
+    }
+
+    private void OnHit(RaycastHit hit)
+    {
+        if (TryGetMaterialColor(hit, out Color c))
+        {
+            Debug.Log($"Color del impacto: {c} | RGB(0-255): " +
+                      $"{(int)(c.r * 255)}, {(int)(c.g * 255)}, {(int)(c.b * 255)} | Hex: #{ColorUtility.ToHtmlStringRGB(c)}");
+        }
+        else
+        {
+            Debug.Log($"No se pudo obtener el color de {hit.collider.name}");
         }
 
-        if (bullet.TryGetComponent(out Rigidbody rb))
-        {
-            rb.useGravity = false;
-            rb.linearVelocity = canon.forward * velocity;
-        }
+        if (hit.collider.CompareTag("Smash"))
+            Destroy(hit.collider.gameObject);
 
-        Destroy(bullet, ali);
+        Debug.Log($"Golpeaste: {hit.collider.name} | tag: '{hit.collider.tag}' | layer: {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
+    }
+
+    private static bool TryGetMaterialColor(RaycastHit hit, out Color color)
+    {
+        color = Color.white;
+
+        Renderer rend = hit.collider.GetComponentInParent<Renderer>();
+        if (rend == null) return false;
+
+        Material mat = rend.sharedMaterial;
+        if (mat == null) return false;
+
+        if (mat.HasProperty(BaseColorId)) { color = mat.GetColor(BaseColorId); return true; }
+        if (mat.HasProperty(ColorId)) { color = mat.GetColor(ColorId); return true; }
+
+        return false;
     }
 }
