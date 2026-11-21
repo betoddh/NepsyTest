@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Anchor
+  - Smash
   layers:
   - Default
   - TransparentFX
