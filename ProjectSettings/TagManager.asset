@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Anchor
+  - Smash
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Target
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 
@@ -51,3 +52,4 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+  m_MigratedRenderPipelines: []
