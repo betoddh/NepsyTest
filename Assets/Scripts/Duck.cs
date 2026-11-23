@@ -4,7 +4,7 @@ public class Duck : MonoBehaviour
 {
     [SerializeField] private float velocity = 10f;
     [SerializeField] private float detection = 0.7f;
-    [SerializeField] private LayerMask obstacleMask;   
+    [SerializeField] private LayerMask obstacleMask;   // solo la capa Pared
 
     private Vector3 dire;
 

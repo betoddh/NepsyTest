@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class ShootGun : MonoBehaviour
 {
@@ -55,18 +56,31 @@ public class ShootGun : MonoBehaviour
     {
         if (TryGetMaterialColor(hit, out Color c))
         {
-            Debug.Log($"Color del impacto: {c} | RGB(0-255): " +
-                      $"{(int)(c.r * 255)}, {(int)(c.g * 255)}, {(int)(c.b * 255)} | Hex: #{ColorUtility.ToHtmlStringRGB(c)}");
-        }
-        else
-        {
-            Debug.Log($"No se pudo obtener el color de {hit.collider.name}");
+            if (GlobalVariables.isRed && SameColor(c, new Color(1f,0,0)) && GlobalVariables.caseA)
+            {
+                GlobalVariables.correct += 1;
+                Debug.Log($"amount of corrects: {GlobalVariables.correct}");
+                GlobalVariables.isCorrect = true;
+            }
+            else if (!GlobalVariables.isRed && SameColor(c, new Color(1f, 0, 0)) && GlobalVariables.caseA)
+            {
+                GlobalVariables.comi += 1;
+                Debug.Log($"amount Comision: {GlobalVariables.comi}");
+            }
+            else if(GlobalVariables.isRed && !SameColor(c, new Color(1f, 0, 0)) && GlobalVariables.caseA)
+            {
+                GlobalVariables.omisi += 1;
+                Debug.Log($"amount omision: {GlobalVariables.omisi}");
+            }
         }
 
         if (hit.collider.CompareTag("Smash"))
-            Destroy(hit.collider.gameObject);
-
-        Debug.Log($"Golpeaste: {hit.collider.name} | tag: '{hit.collider.tag}' | layer: {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
+        {
+            // Destruye la raíz del pato (Duck(Clone)), no solo el hijo "Bird"
+            Duck duck = hit.collider.GetComponentInParent<Duck>();
+            GameObject target = duck != null ? duck.gameObject : hit.collider.transform.root.gameObject;
+            Destroy(target);
+        }
     }
 
     private static bool TryGetMaterialColor(RaycastHit hit, out Color color)
@@ -74,14 +88,22 @@ public class ShootGun : MonoBehaviour
         color = Color.white;
 
         Renderer rend = hit.collider.GetComponentInParent<Renderer>();
+        if (rend == null) rend = hit.collider.GetComponentInChildren<Renderer>();
         if (rend == null) return false;
 
-        Material mat = rend.sharedMaterial;
+        Material mat = rend.material;
         if (mat == null) return false;
 
         if (mat.HasProperty(BaseColorId)) { color = mat.GetColor(BaseColorId); return true; }
         if (mat.HasProperty(ColorId)) { color = mat.GetColor(ColorId); return true; }
 
         return false;
+    }
+
+    private static bool SameColor(Color a, Color b, float tolerance = 0.1f)
+    {
+        return Mathf.Abs(a.r - b.r) <= tolerance &&
+               Mathf.Abs(a.g - b.g) <= tolerance &&
+               Mathf.Abs(a.b - b.b) <= tolerance;
     }
 }
