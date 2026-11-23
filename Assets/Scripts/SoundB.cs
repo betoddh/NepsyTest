@@ -102,5 +102,6 @@ public class SoundB : MonoBehaviour
             
             yield return new WaitForSeconds(2f);
         }
+        GlobalVariables.gameFinished = true;
     }
 }

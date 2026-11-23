@@ -1,5 +1,3 @@
-using UnityEditorInternal;
-
 public static class GlobalVariables
 {
     public static bool isRed=false;
@@ -19,5 +17,8 @@ public static class GlobalVariables
     public static bool caseA = false;
 
     public static bool caseB = false;
+    public static bool gameFinished = false;
+
+    //Codigo Dubin
 
 }
