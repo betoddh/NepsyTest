@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 2175698523215626381}
   - component: {fileID: 6006395703996817942}
   - component: {fileID: 6579407902610563969}
+  - component: {fileID: 8324120305278938863}
   m_Layer: 3
   m_Name: Duck
   m_TagString: Smash
@@ -187,8 +188,8 @@ Transform:
   m_GameObject: {fileID: 4074810730233273785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.343, y: 5.513, z: 18.225}
-  m_LocalScale: {x: 5.007465, y: 5.007465, z: 5.007465}
+  m_LocalPosition: {x: -4.8979154, y: 5.487279, z: 10.718955}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4302949532365101503}
@@ -229,11 +230,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2879f703c559a448af84d6b4a10065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Duck
-  velocity: 10
+  velocity: 5
   detection: 0.7
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!65 &8324120305278938863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4074810730233273785}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13, y: 0.13, z: 0.13}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5938558764553031070
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +408,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5159b627552b1324f8536bcdb9bc8122, type: 2}
+  - {fileID: 2100000, guid: d602c4873255ac94f8df924f0e350d6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

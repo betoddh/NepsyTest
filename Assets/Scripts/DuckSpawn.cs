@@ -11,13 +11,19 @@ public class DuckSpawn : MonoBehaviour
     [SerializeField] private float spawnInterval = 4;
     private readonly List<GameObject> ducks = new List<GameObject>();
 
+    private int colorIndex = 0;
+
 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Update()
     {
-        StartCoroutine(SpawnLoop());
+        if(GlobalVariables.gameStarted == true)
+        {
+            StartCoroutine(SpawnLoop());
+        }
+        
 
     }
 
@@ -41,12 +47,11 @@ public class DuckSpawn : MonoBehaviour
         Transform point = spawners[Random.Range(0, spawners.Count)];
         GameObject duck = Instantiate(prefab, point.position, point.rotation);
 
-        if (spawnColors.Count > 0)
-        {
-            Color c = spawnColors[Random.Range(0, spawnColors.Count)];
-            foreach (Renderer r in duck.GetComponentsInChildren<Renderer>())
-                r.material.color = c;
-        }
+        Color c = spawnColors[colorIndex];
+        foreach (Renderer r in duck.GetComponentsInChildren<Renderer>())
+            r.material.color = c;
+        
+        colorIndex = (colorIndex + 1) % spawnColors.Count;
 
         ducks.Add(duck);
     }
