@@ -170,6 +170,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+      propertyPath: correct
+      value: 
+      objectReference: {fileID: 1460564332}
+    - target: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+      propertyPath: omission
+      value: 
+      objectReference: {fileID: 1014202117}
+    - target: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+      propertyPath: commission
+      value: 
+      objectReference: {fileID: 769566186}
+    - target: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+      propertyPath: inihibition
+      value: 
+      objectReference: {fileID: 510356008}
+    - target: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+      propertyPath: resultPanel
+      value: 
+      objectReference: {fileID: 2113828681}
     - target: {fileID: 9166838407973957407, guid: ece270ae35849004cba77f7c1adee884, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -263,6 +283,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9166838407973957407, guid: ece270ae35849004cba77f7c1adee884, type: 3}
   m_PrefabInstance: {fileID: 32541270}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &32541272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+  m_PrefabInstance: {fileID: 32541270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d75904b22334ad449e4fbe601dc3c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::scenes
 --- !u!1 &69356329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2698,7 +2729,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1668793929}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 32541272}
+        m_TargetAssemblyTypeName: scenes, Assembly-CSharp
+        m_MethodName: restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1668793929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3112,7 +3155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2113828682
 RectTransform:
   m_ObjectHideFlags: 0
