@@ -6,8 +6,10 @@ Status: Documentation template.
 The team used AI tools for the purposes listed below. All project members remain responsible for the submitted work and must be able to explain the design, implementation, research, testing, and documentation.
 
 Declared AI level: AI level 1
+
 2. AI tools used
-OpenAI
+AI tool	Purpose	Part of the project where it was used	Output used	How the team checked, modified, or rejected the output
+ChatGPT (OpenAI)	Assistance creating the initial structure and wording of the project documentation templates.	Initial drafts of README.md, DesignJustification.md, UserResearch.md, UserTesting.md, and AIUsage.md.	A proposed organization and placeholder text based on the course presentation.	
 
 3. Verification and human contribution
 The team reviewed AI-assisted material before including it in the project. The review process included:
