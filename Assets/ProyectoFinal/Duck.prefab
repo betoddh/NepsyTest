@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2175698523215626381}
   - component: {fileID: 6006395703996817942}
-  - component: {fileID: 6579407902610563969}
+  - component: {fileID: -7106596861978897345}
   m_Layer: 3
   m_Name: Duck
   m_TagString: Smash
@@ -217,7 +217,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6579407902610563969
+--- !u!114 &-7106596861978897345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2879f703c559a448af84d6b4a10065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Duck
-  velocity: 5
+  velocity: 10
   detection: 0.7
   obstacleMask:
     serializedVersion: 2

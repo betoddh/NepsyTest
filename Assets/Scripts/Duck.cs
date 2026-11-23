@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class Duck : MonoBehaviour
 {
     [SerializeField] private float velocity = 10f;
     [SerializeField] private float detection = 0.7f;
-    [SerializeField] private LayerMask obstacleMask;   // solo la capa Pared
+    [SerializeField] private LayerMask obstacleMask;
+
+
+
 
     private Vector3 dire;
 
@@ -12,6 +16,8 @@ public class Duck : MonoBehaviour
     {
         dire = transform.forward;
     }
+
+
 
     private void Update()
     {
