@@ -9,6 +9,7 @@ public static class GlobalVariables
     public static int comi = 0;
     public static int omisi = 0;
     public static int inhi = 0;
+    public static float time = 0;
 
     public static bool isCorrect = false;
 
@@ -19,6 +20,7 @@ public static class GlobalVariables
     public static bool caseB = false;
     public static bool gameFinished = false;
 
+    public static bool finishTime = false;
     //Codigo Dubin
 
 }
