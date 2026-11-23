@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class ShootGun : MonoBehaviour
 {
@@ -55,11 +56,21 @@ public class ShootGun : MonoBehaviour
     {
         if (TryGetMaterialColor(hit, out Color c))
         {
-            if (GlobalVariables.isRed && IsRedColor(c))
+            if (GlobalVariables.isRed && SameColor(c, new Color(1f,0,0)) && GlobalVariables.caseA)
             {
                 GlobalVariables.correct += 1;
                 Debug.Log($"amount of corrects: {GlobalVariables.correct}");
                 GlobalVariables.isCorrect = true;
+            }
+            else if (!GlobalVariables.isRed && SameColor(c, new Color(1f, 0, 0)) && GlobalVariables.caseA)
+            {
+                GlobalVariables.comi += 1;
+                Debug.Log($"amount Comision: {GlobalVariables.comi}");
+            }
+            else if(GlobalVariables.isRed && !SameColor(c, new Color(1f, 0, 0)) && GlobalVariables.caseA)
+            {
+                GlobalVariables.omisi += 1;
+                Debug.Log($"amount omision: {GlobalVariables.omisi}");
             }
         }
 
@@ -89,8 +100,10 @@ public class ShootGun : MonoBehaviour
         return false;
     }
 
-    private static bool IsRedColor(Color c, float tolerance = 0.1f)
+    private static bool SameColor(Color a, Color b, float tolerance = 0.1f)
     {
-        return c.r > 1f - tolerance && c.g < tolerance && c.b < tolerance;
+        return Mathf.Abs(a.r - b.r) <= tolerance &&
+               Mathf.Abs(a.g - b.g) <= tolerance &&
+               Mathf.Abs(a.b - b.b) <= tolerance;
     }
 }

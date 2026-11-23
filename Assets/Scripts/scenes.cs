@@ -18,6 +18,7 @@ public class scenes : MonoBehaviour
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
         scenesPanel.SetActive(false);
+        GlobalVariables.caseA = true;
     }
 
     public void advance()
@@ -27,6 +28,7 @@ public class scenes : MonoBehaviour
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
         scenesPanel.SetActive(false);
+        GlobalVariables.caseB = true;
     }
 
     public void start()

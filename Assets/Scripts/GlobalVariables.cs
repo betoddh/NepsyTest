@@ -16,4 +16,8 @@ public static class GlobalVariables
 
     public static bool startSound = false;
 
+    public static bool caseA = false;
+
+    public static bool caseB = false;
+
 }
