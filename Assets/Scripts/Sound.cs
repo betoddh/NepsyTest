@@ -59,7 +59,7 @@ public class Sound : MonoBehaviour
             GlobalVariables.startSound= false;
         }
 
-        Debug.Log($"bandera game start = {GlobalVariables.gameStarted}");
+        
     }
 
     private IEnumerator startSound()

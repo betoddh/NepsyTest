@@ -2348,6 +2348,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 1, a: 0}
   - {r: 1, g: 1, b: 0, a: 0}
   maxDucks: 6
+  minPerColor: 2
   spawnInterval: 2
 --- !u!4 &1383565017
 Transform:
