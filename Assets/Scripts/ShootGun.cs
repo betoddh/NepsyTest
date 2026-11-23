@@ -55,18 +55,21 @@ public class ShootGun : MonoBehaviour
     {
         if (TryGetMaterialColor(hit, out Color c))
         {
-            Debug.Log($"Color del impacto: {c} | RGB(0-255): " +
-                      $"{(int)(c.r * 255)}, {(int)(c.g * 255)}, {(int)(c.b * 255)} | Hex: #{ColorUtility.ToHtmlStringRGB(c)}");
-        }
-        else
-        {
-            Debug.Log($"No se pudo obtener el color de {hit.collider.name}");
+            if (GlobalVariables.isRed && IsRedColor(c))
+            {
+                GlobalVariables.correct += 1;
+                Debug.Log($"amount of corrects: {GlobalVariables.correct}");
+                GlobalVariables.isCorrect = true;
+            }
         }
 
         if (hit.collider.CompareTag("Smash"))
-            Destroy(hit.collider.gameObject);
-
-        Debug.Log($"Golpeaste: {hit.collider.name} | tag: '{hit.collider.tag}' | layer: {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
+        {
+            // Destruye la raíz del pato (Duck(Clone)), no solo el hijo "Bird"
+            Duck duck = hit.collider.GetComponentInParent<Duck>();
+            GameObject target = duck != null ? duck.gameObject : hit.collider.transform.root.gameObject;
+            Destroy(target);
+        }
     }
 
     private static bool TryGetMaterialColor(RaycastHit hit, out Color color)
@@ -74,14 +77,20 @@ public class ShootGun : MonoBehaviour
         color = Color.white;
 
         Renderer rend = hit.collider.GetComponentInParent<Renderer>();
+        if (rend == null) rend = hit.collider.GetComponentInChildren<Renderer>();
         if (rend == null) return false;
 
-        Material mat = rend.sharedMaterial;
+        Material mat = rend.material;
         if (mat == null) return false;
 
         if (mat.HasProperty(BaseColorId)) { color = mat.GetColor(BaseColorId); return true; }
         if (mat.HasProperty(ColorId)) { color = mat.GetColor(ColorId); return true; }
 
         return false;
+    }
+
+    private static bool IsRedColor(Color c, float tolerance = 0.1f)
+    {
+        return c.r > 1f - tolerance && c.g < tolerance && c.b < tolerance;
     }
 }
