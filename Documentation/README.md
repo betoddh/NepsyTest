@@ -100,7 +100,7 @@ The team described the categories as follows: a **commission error** occurs when
 
 ### Assessment in progress
 
-[agregar screen de heidi]
+<img width="910" height="536" alt="image (3)" src="https://github.com/user-attachments/assets/c418c257-0d4b-44e7-96dc-68469e6f5422" />
 
 ### Results
 
