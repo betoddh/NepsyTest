@@ -171,6 +171,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+      propertyPath: time
+      value: 
+      objectReference: {fileID: 954790630}
+    - target: {fileID: 5074391080430817258, guid: ece270ae35849004cba77f7c1adee884, type: 3}
       propertyPath: correct
       value: 
       objectReference: {fileID: 1460564332}
@@ -274,7 +278,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9166838407973957407, guid: ece270ae35849004cba77f7c1adee884, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 2113828682}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece270ae35849004cba77f7c1adee884, type: 3}
@@ -1975,8 +1979,9 @@ GameObject:
   - component: {fileID: 1157878266}
   - component: {fileID: 1157878265}
   - component: {fileID: 1157878267}
+  - component: {fileID: 1157878268}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: Audio&Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2107,6 +2112,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1157878268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157878264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f15942c4e40a184ba09585762f94281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::time
 --- !u!1001 &1170896927
 PrefabInstance:
   m_ObjectHideFlags: 0

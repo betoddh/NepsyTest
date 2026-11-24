@@ -18,7 +18,6 @@ public class time : MonoBehaviour
                 GlobalVariables.isYellow = false;
                 GlobalVariables.isCorrect = false;
                 allTimes.Add(reactTime);
-                print(reactTime);
                 reactTime = 0;
             }
             else if (reactTime >= 3.8f)
