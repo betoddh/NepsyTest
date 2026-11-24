@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 
 public class ShootGun : MonoBehaviour
 {
@@ -13,6 +12,10 @@ public class ShootGun : MonoBehaviour
 
     static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
     static readonly int ColorId = Shader.PropertyToID("_Color");
+
+    private static readonly Color Red = new Color(1f, 0f, 0f);
+    private static readonly Color Yellow = new Color(1f, 1f, 0f);
+    private static readonly Color Blue = new Color(0f, 0f, 1f);
 
     public bool drawDebug = true;
     private float lastShotTime;
@@ -56,23 +59,57 @@ public class ShootGun : MonoBehaviour
     {
         if (TryGetMaterialColor(hit, out Color c))
         {
-            if (GlobalVariables.isRed && SameColor(c, new Color(1f,0,0)) && GlobalVariables.caseA)
+            bool redDuck = SameColor(c, Red);
+            bool yellowDuck = SameColor(c, Yellow);
+            bool blueDuck = SameColor(c, Blue);
+
+            if (GlobalVariables.caseA)
             {
-                GlobalVariables.correct += 1;
-                Debug.Log($"amount of corrects: {GlobalVariables.correct}");
-                GlobalVariables.isCorrect = true;
+                if (GlobalVariables.isRed && redDuck)
+                {
+                    GlobalVariables.correct += 1;
+                    Debug.Log($"amount of corrects: {GlobalVariables.correct}");
+                    GlobalVariables.isCorrect = true;
+                }
+                else if (!GlobalVariables.isRed && redDuck)
+                {
+                    GlobalVariables.comi += 1;
+                    Debug.Log($"amount Comision: {GlobalVariables.comi}");
+                }
+                else if (GlobalVariables.isRed && !redDuck)
+                {
+                    GlobalVariables.comi += 1;
+                    Debug.Log($"amount Comision: {GlobalVariables.comi}");
+                }
             }
-            else if (!GlobalVariables.isRed && SameColor(c, new Color(1f, 0, 0)) && GlobalVariables.caseA)
+            else if (GlobalVariables.caseB)
             {
-                GlobalVariables.comi += 1;
-                Debug.Log($"amount Comision: {GlobalVariables.comi}");
+                bool anyFlag = GlobalVariables.isRed || GlobalVariables.isYellow || GlobalVariables.isBlue;
+                bool anyDuck = redDuck || yellowDuck || blueDuck;
+
+                if ((GlobalVariables.isRed && redDuck) ||
+                    (GlobalVariables.isYellow && yellowDuck) ||
+                    (GlobalVariables.isBlue && blueDuck))
+                {
+                    GlobalVariables.correct += 1;
+                    Debug.Log($"amount of corrects: {GlobalVariables.correct}");
+                    GlobalVariables.isCorrect = true;
+                }
+                else if (!anyFlag && anyDuck)
+                {
+                    GlobalVariables.comi += 1;
+                    Debug.Log($"amount Comision: {GlobalVariables.comi}");
+                }
+                else if (anyFlag)
+                {
+                    GlobalVariables.comi += 1;
+                    Debug.Log($"amount Comision: {GlobalVariables.comi}");
+                }
             }
-            
         }
 
         if (hit.collider.CompareTag("Smash"))
         {
-            // Destruye la raíz del pato (Duck(Clone)), no solo el hijo "Bird"
             Duck duck = hit.collider.GetComponentInParent<Duck>();
             GameObject target = duck != null ? duck.gameObject : hit.collider.transform.root.gameObject;
             Destroy(target);

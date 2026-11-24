@@ -22,6 +22,8 @@ public class time : MonoBehaviour
             }
             else if (reactTime >= 3.8f)
             {
+                GlobalVariables.omisi += 1;
+                Debug.Log($"omission total = {GlobalVariables.omisi}");
 
                 reactTime = 0;
             }
@@ -36,8 +38,7 @@ public class time : MonoBehaviour
 
     private void reactionTime()
     {
-
-        if (allTimes.Count == 0)
+        if (allTimes.Count == 0) 
         {
             GlobalVariables.time = -1;
         }

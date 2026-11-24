@@ -36,7 +36,7 @@ public class Sound : MonoBehaviour
             wordRand[i] = words[n];
         }
 
-        for (int i = 0;i < 30; i++)
+        for (int i = 0; i < 30; i++)
         {
             do
             {
@@ -53,7 +53,7 @@ public class Sound : MonoBehaviour
 
     void Update()
     {
-        if (GlobalVariables.startSound)
+        if (GlobalVariables.startSound && GlobalVariables.caseA)
         {
             StartCoroutine(startSound());
             GlobalVariables.startSound= false;

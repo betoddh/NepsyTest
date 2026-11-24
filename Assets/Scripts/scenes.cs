@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,20 +17,19 @@ public class scenes : MonoBehaviour
     public TMP_Text inihibition;
     public TMP_Text time;
     public Button startBtn;
-    private int sceneNumber;
 
     void Update()
     {
         if (GlobalVariables.gameFinished)
         {
-            finalmenu();
             GlobalVariables.gameFinished = false;
+            StartCoroutine(finalmenu());
         }
     }
+
     public void basic()
     {
         instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the RED duck. When you hear any other word, do nothing. To shoot, press the trigger.";
-        sceneNumber = 0;
         GlobalVariables.posibleCorrect = 30;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
@@ -40,7 +40,6 @@ public class scenes : MonoBehaviour
     public void advance()
     {
         instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the YELLOW duck. When you hear the word YELLOW, you must shoot the RED duck. Finally, when you hear the word BLUE, you must shoot the BLUE duck. When you hear any other word, do nothing. To shoot, press the trigger.";
-        sceneNumber=2;
         GlobalVariables.posibleCorrect = 36;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
@@ -56,10 +55,6 @@ public class scenes : MonoBehaviour
 
     private void toScene()
     {
-        if (sceneNumber == 2)
-        {
-            SceneManager.LoadScene(sceneNumber);
-        }
         scenesPanel.SetActive(false);
         instructionsPanel.SetActive(false);
         startPanel.SetActive(false);
@@ -67,27 +62,28 @@ public class scenes : MonoBehaviour
         GlobalVariables.gameStarted = true;
     }
 
-    private void finalmenu()
+    private IEnumerator finalmenu()
     {
-        correct.text=GlobalVariables.correct +"/" + GlobalVariables.posibleCorrect;
-        commission.text=GlobalVariables.comi+ "";
-        omission.text=GlobalVariables.omisi + "";
-        inihibition.text=GlobalVariables.inhi + "";
+        while (GlobalVariables.time == 0)
+        {
+            yield return null; // espera un frame
+        }
+
+        correct.text = GlobalVariables.correct + "/" + GlobalVariables.posibleCorrect;
+        commission.text = GlobalVariables.comi.ToString();
+        omission.text = GlobalVariables.omisi.ToString();
+        inihibition.text = GlobalVariables.inhi.ToString();
+
         if (GlobalVariables.time == -1)
-        {
             time.text = "No time reaction";
-        }
         else
-        {
-            time.text = GlobalVariables.time + " seconds";
-        }
+            time.text = GlobalVariables.time.ToString("F2") + " seconds";
 
         resultPanel.SetActive(true);
     }
 
     public void restart()
     {
-        SceneManager.LoadScene(0);
         GlobalVariables.isRed = false;
         GlobalVariables.isYellow = false;
         GlobalVariables.isBlue = false;
@@ -98,9 +94,15 @@ public class scenes : MonoBehaviour
         GlobalVariables.inhi = 0;
 
         GlobalVariables.isCorrect = false;
-
         GlobalVariables.caseA = false;
-
         GlobalVariables.caseB = false;
+
+        GlobalVariables.time = 0;
+        GlobalVariables.finishTime = false;
+        GlobalVariables.gameFinished = false;
+
+        GlobalVariables.gameStarted = false;
+
+        SceneManager.LoadScene(0);
     }
 }

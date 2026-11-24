@@ -61,7 +61,7 @@ public class SoundB : MonoBehaviour
 
     void Update()
     {
-        if (GlobalVariables.startSound)
+        if (GlobalVariables.startSound && GlobalVariables.caseB)
         {
             StartCoroutine(startSound());
             GlobalVariables.startSound = false;
