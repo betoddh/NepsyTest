@@ -12,9 +12,9 @@ The design goal was to translate the activity into a clear, complete VR flow whi
 
 The interface separates the experience into a start screen, mode selection, mode-specific instructions, the assessment itself, and a results screen. Each screen has a clear next action. This gives users a guided path through the main flow rather than presenting all controls and rules at once.
 
-![Start screen](screenshots/start-screen.jpg)
+<img width="1218" height="606" alt="WhatsApp Image 2026-11-22 at 17 04 18 (1)" src="https://github.com/user-attachments/assets/b8cd8235-c3e3-47a8-b665-56ef3a9cfb9e" />
 
-![Mode selection](screenshots/mode-selection.jpg)
+<img width="1265" height="611" alt="WhatsApp Image 2026-11-22 at 17 08 51 (1)" src="https://github.com/user-attachments/assets/19bc3608-ceef-45ac-8c77-41b8e3831c98" />
 
 ### 2.2 Separate instructions for each mode
 
@@ -22,9 +22,9 @@ Basic and Advanced use the same number of stimuli and the same activity duration
 
 The instructions disappear when the activity starts, so users must remember the selected rule while responding. This is part of the task, but it also creates a reliance on working memory and is a design trade-off rather than an attempt to eliminate recall.
 
-![Basic instructions](screenshots/basic-instructions.jpg)
+<img width="1253" height="607" alt="WhatsApp Image 2026-11-22 at 17 09 47" src="https://github.com/user-attachments/assets/b1ae861e-131e-411b-9a61-4772182f7d5f" />
 
-![Advanced instructions](screenshots/advanced-instructions.jpg)
+<img width="1270" height="599" alt="WhatsApp Image 2026-11-22 at 17 57 59" src="https://github.com/user-attachments/assets/7bc6b506-ba34-489c-9b2e-7b70003fecee" />
 
 ### 2.3 Typography and visual environment
 
@@ -46,7 +46,7 @@ When the audio sequence finishes, the application displays the total correct res
 
 The results screen presents metrics without automatically interpreting them. This was intentional because the psychologist is expected to interpret the numbers. The application does not save session history, so the psychologist records the results manually.
 
-![Results screen](screenshots/results-screen.png)
+<img width="937" height="558" alt="Screenshot 2026-11-23 at 6 52 48 PM" src="https://github.com/user-attachments/assets/6511114b-f9de-4fa1-a6bc-de6a514bde9d" />
 
 ## 3. HCI concepts applied
 
@@ -107,7 +107,7 @@ During usability testing, the main point of uncertainty reported by testers was 
 
 The Figma prototype contains the complete main flow: start screen, mode selection, Basic instructions, Advanced instructions, assessment screen, and results screen.
 
-[Open the Nepsy Test Figma prototype](https://www.figma.com/design/yFqMirPqeeeYdRU2VKNOVN/HCI-Final-Project?node-id=0-1&t=xXbdvt43P9nuFRRg-1)
+https://www.figma.com/design/yFqMirPqeeeYdRU2VKNOVN/HCI-Final-Project?node-id=0-1&t=xXbdvt43P9nuFRRg-1
 
 ## 7. Design summary
 
