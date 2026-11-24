@@ -6,13 +6,14 @@ public class DuckSpawn : MonoBehaviour
 {
     public GameObject prefab;
     public List<Transform> spawners = new List<Transform>();
-    public List<Color> spawnColors = new List<Color>();
+    public List<Color> spawnColors = new List<Color>(); // índice 0 = rojo
     [SerializeField] private int maxDucks = 6;
     [SerializeField] private int minPerColor = 2;
     [SerializeField] private float spawnInterval = 4f;
 
-    // Cada pato vivo y el índice de su color
+    private const int RedIndex = 0;
     private readonly Dictionary<GameObject, int> ducks = new Dictionary<GameObject, int>();
+    private bool firstDuckSpawned = false;
 
     private void Start()
     {
@@ -36,7 +37,6 @@ public class DuckSpawn : MonoBehaviour
 
     private void CleanDestroyed()
     {
-        // Un GameObject destruido compara como null
         List<GameObject> dead = new List<GameObject>();
         foreach (var pair in ducks)
             if (pair.Key == null) dead.Add(pair.Key);
@@ -47,12 +47,17 @@ public class DuckSpawn : MonoBehaviour
 
     private int PickColorIndex()
     {
-        // Cuántos patos vivos hay de cada color
+        // El primer pato siempre es rojo
+        if (!firstDuckSpawned)
+        {
+            firstDuckSpawned = true;
+            return RedIndex;
+        }
+
         int[] counts = new int[spawnColors.Count];
         foreach (int idx in ducks.Values)
             counts[idx]++;
 
-        // Colores que no llegan al mínimo
         List<int> missing = new List<int>();
         for (int i = 0; i < counts.Length; i++)
             if (counts[i] < minPerColor) missing.Add(i);
@@ -60,7 +65,6 @@ public class DuckSpawn : MonoBehaviour
         if (missing.Count > 0)
             return missing[Random.Range(0, missing.Count)];
 
-        // Si todos cumplen el mínimo, cualquier color
         return Random.Range(0, spawnColors.Count);
     }
 

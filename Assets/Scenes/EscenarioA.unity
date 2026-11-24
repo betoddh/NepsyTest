@@ -1560,8 +1560,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -162.99988}
-  m_SizeDelta: {x: 200, y: 80}
+  m_AnchoredPosition: {x: 300, y: -162.99988}
+  m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954790630
 MonoBehaviour:
@@ -1980,6 +1980,7 @@ GameObject:
   - component: {fileID: 1157878265}
   - component: {fileID: 1157878267}
   - component: {fileID: 1157878268}
+  - component: {fileID: 1157878269}
   m_Layer: 0
   m_Name: Audio&Time
   m_TagString: Untagged
@@ -2124,6 +2125,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f15942c4e40a184ba09585762f94281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::time
+--- !u!114 &1157878269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157878264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6a495665ca4274aa7271282f354a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundB
+  audioSource: {fileID: 1157878267}
 --- !u!1001 &1170896927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2274,7 +2288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total time:'
+  m_text: 'Reaction time:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 356c18f675c30d248bae412992d8622e, type: 2}
   m_sharedMaterial: {fileID: -2370827924354072131, guid: 356c18f675c30d248bae412992d8622e, type: 2}
