@@ -1,61 +1,118 @@
-# Nepsy Test
+Nepsy Test
+Course: Introduction to Human Computer Interaction
+Platform: Meta Quest 3 (VR)
+Engine: Unity 6000.5.4f1
 
-## Project Overview
+Project overview
+Nepsy Test is a virtual-reality prototype designed to support psychologists who monitor the progress of patients with ADHD. It translates a color-and-word response activity described to the team by a consulting psychologist into an interactive VR experience.
 
-Nepsy Test is a Virtual Reality application developed for the Meta Quest headset. Its purpose is to support psychologists in monitoring the progress of patients with ADHD through an interactive cognitive assessment activity.
+The project was created in response to feedback that administering the activity manually can be time-consuming and impractical. In the application, audio stimuli are presented at regular intervals, colored ducks appear and move in a 3D environment, and the user responds by aiming and pressing the trigger on the Meta Quest 3 controller. The application automatically counts selected response metrics and displays them when the activity ends.
 
-The application presents users with red, green, and blue birds alongside auditory instructions. Users must listen to the spoken words and follow specific color-association rules by shooting the corresponding birds using the VR controller's trigger.
+Nepsy Test is a prototype to support a psychologist's work. It does not diagnose ADHD, replace professional assessment, provide a clinical interpretation, or claim to reproduce a clinically validated standardized administration. The psychologist remains responsible for interpreting the results.
 
-The assessment includes two difficulty modes, Basic and Advanced, each requiring users to follow different response rules.
+Intended users
+Primary users: psychologists who administer activities and review performance metrics to help monitor patient progress.
+Participants: people taking part in the activity, with patients with ADHD as the intended population described during the project research.
+The usability test described in UserTesting.md involved two convenience testers, not a clinical sample. Their feedback should not be interpreted as evidence of clinical effectiveness or suitability for every patient.
 
-## Problem Statement
+Main features
+VR experience designed for Meta Quest 3.
+Two task modes: Basic and Advanced.
+Mode-specific instructions shown before the activity.
+Repeated audio words played at regular intervals.
+Red, green, and blue ducks that appear and move during the activity.
+Controller-trigger input to shoot the selected duck.
+Visual feedback: a duck disappears when it is hit.
+Automatic tally of response metrics and total time.
+Results screen with a button to return to the main menu.
+Application flow
+Start screen: the user selects Start.
+Mode selection: the user chooses Basic or Advance (the button label shown in the interface; referred to as Advanced mode in this documentation).
+Instructions: the corresponding rules are displayed. The user selects Start to begin.
+Activity: audio words are played repeatedly at equal intervals while colored ducks appear and move in the environment. The user follows the selected mode's rules and uses the controller trigger to shoot when required.
+Results: after the audio sequence finishes, the results screen displays the recorded metrics. The user can select Main menu to return to the beginning.
+The two modes use the same activity duration and number of stimuli. Their difference is the response rule. The application does not provide pause or restart controls during an activity.
 
-Psychologists need tools that allow them to assess and monitor their patients' performance. Nepsy Test explores the use of Virtual Reality as an interactive environment for conducting a structured cognitive assessment activity.
+Task instructions
+Basic mode
+During this test, you will hear different words. When you hear the word RED, you must shoot the RED duck. When you hear any other word, do nothing. To shoot, press the trigger.
 
-## Target Users
 
-- **Primary users:** Psychologists who administer the assessment and review the results.
-- **Participants:** Individuals with ADHD who complete the assessment using a Meta Quest headset.
 
-## Main Features
+Advanced mode
+During this test, you will hear different words. When you hear the word RED, you must shoot the GREEN duck. When you hear the word GREEN, you must shoot the RED duck. Finally, when you hear the word BLUE, you must shoot the BLUE duck. When you hear any other word, do nothing. To shoot, press the trigger.
 
-- Virtual Reality experience designed for Meta Quest.
-- Two assessment modes: Basic and Advanced.
-- Audio-based instructions and stimuli.
-- Three visual stimulus colors: red, green, and blue.
-- Interactive shooting mechanics using the VR controller trigger.
-- Automatic test progression through a sequence of audio stimuli.
-- Results screen displaying performance indicators.
 
-## Application Flow
 
-1. **Start Screen:** The user enters the application and selects Start.
-2. **Mode Selection:** The user chooses between Basic Mode and Advanced Mode.
-3. **Instructions:** The application displays the instructions for the selected mode.
-4. **Test Execution:** The user listens to audio instructions and responds to the colored birds using the controller trigger.
-5. **Test Completion:** The assessment ends automatically when all audio stimuli have been played.
-6. **Results:** The application displays a summary of the user's performance.
+Controls
+Input	Action
+Meta Quest 3 controller trigger	Shoot the duck being aimed at
+Start / Basic / Advance / Main menu buttons	Navigate the application screens
+The trigger is the only controller input used to respond during the activity. The user must aim at a duck before shooting. The application detects the color of the duck hit. Shots made before an audio prompt are also registered and contribute to the results; the precise counter-classification for each type of early or incorrect response is determined by the application's implementation.
 
-## Assessment Results
+Results
+The final screen displays:
 
-At the end of the assessment, the application displays the following indicators:
+Total correct responses
+Total commission errors
+Total omission errors
+Total inhibition errors
+Total time
+The application displays counts and elapsed time only. It does not interpret the results or provide a clinical assessment. The psychologist interprets the metrics and records them manually. Results are not saved by the application: they disappear when the session is closed, and previous sessions cannot be retrieved from the app.
 
-- Total correct responses
-- Total commission errors
-- Total omission errors
-- Total inhibition errors
-- Total time
+The team described the categories as follows: a commission error occurs when the user shoots when no action is required; an omission error occurs when the user does not shoot when a response is required; and an inhibition error occurs when the user shoots the wrong duck or responds to a word that requires no action. The application maintains separate commission and inhibition counters. Because the descriptions of commission and inhibition overlap conceptually, the exact code-level conditions that distinguish their counters should be checked against the Unity implementation before making a more precise technical claim.
 
-The results are displayed on the final screen and are manually recorded by the psychologist. The application does not currently provide persistent result storage.
 
-## Controls
 
-The user interacts with the application through the Meta Quest controllers. The trigger is used to shoot the birds during the assessment.
+Screenshots
+Start screen
 
-## Installation and Execution
 
-[Preguntarle a Duvalin]
+Mode selection
 
-## Screenshots
 
-[Agregar screens de figma o unity]
+Basic instructions
+Basic instructions
+
+Advanced instructions
+Advanced instructions
+
+Assessment in progress
+<!-- TODO: Add a screenshot showing the active assessment, including the colored ducks during the audio task. -->
+Results
+Results
+
+Figma prototype
+The Figma prototype represents the complete main flow: start screen, mode selection, Basic instructions, Advanced instructions, assessment screen, and results screen.
+
+Open the Nepsy Test Figma prototype
+
+Requirements and execution
+Requirements
+Unity 6000.5.4f1 to open and work with the project.
+A Meta Quest 3 headset.
+A compatible computer with the project's VR/headset connection configured.
+The Unity project and its existing XR configuration.
+Running the application
+The team runs the experience with the Meta Quest 3 connected to a computer; it is not installed and launched as a standalone headset application in the workflow documented for this project.
+
+Open the Unity project using Unity 6000.5.4f1.
+Connect the Meta Quest 3 to the computer using the VR connection setup configured for the project.
+Make sure the headset connection and the project's XR runtime are active.
+Launch the experience using the run configuration already set up in the Unity project.
+Put on the headset and follow the on-screen buttons and instructions.
+The specific connection software, driver setup, Unity build target, and launch configuration were not recorded in the information provided for this documentation. The steps above describe the team's connected-headset workflow; anyone setting up the project on a new computer should verify the project's XR settings and required Meta/PC runtime first.
+
+Team and contributions
+Team member	Contributions
+Fátima Walls	Figma prototype, documentation, and implementation of some menu screens in Unity.
+Heidi Meiners	Initial screen design, audio implementation, and timer implementation.
+Alberto Dubin	Main game functionality, shooting mechanics, and response counting.
+All three team members worked in Unity. The team coordinated through GitHub and work meetings.
+
+Repository documentation
+`README.md` — project overview and execution information.
+`DesignJustification.md` — interface decisions and HCI concepts.
+`UserResearch.md` — psychologist consultation, findings, and customer journey.
+`UserTesting.md` — usability test participants, tasks, observations, and limitations.
+`AIUsage.md` — declaration of AI tools and human review.
