@@ -22,6 +22,7 @@ public class time : MonoBehaviour
             }
             else if (reactTime >= 3.8f)
             {
+
                 reactTime = 0;
             }
         }
