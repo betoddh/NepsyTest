@@ -47,13 +47,13 @@ The two modes use the same activity duration and number of stimuli. Their differ
 
 > During this test, you will hear different words. When you hear the word RED, you must shoot the RED duck. When you hear any other word, do nothing. To shoot, press the trigger.
 
-![Basic mode instructions](screenshots/basic-instructions.jpg)
+<img width="1253" height="607" alt="WhatsApp Image 2026-11-22 at 17 09 47" src="https://github.com/user-attachments/assets/c3819b59-d4d5-4f5e-9de0-f25cbdb1c18b" />
 
 ### Advanced mode
 
 > During this test, you will hear different words. When you hear RED, you must shoot the GREEN duck. When you hear GREEN, you must shoot the RED duck. Finally, when you hear BLUE, you must shoot the BLUE duck. When you hear any other word, do nothing. To shoot, press the trigger.
 
-![Advanced mode instructions](screenshots/advanced-instructions.jpg)
+<img width="1270" height="599" alt="WhatsApp Image 2026-11-22 at 17 57 59" src="https://github.com/user-attachments/assets/309a9cc7-060e-4573-8f43-9a56b7ce044f" />
 
 ## Controls
 
@@ -78,39 +78,39 @@ The application displays counts and elapsed time only. It does not interpret the
 
 The team described the categories as follows: a **commission error** occurs when the user shoots when no action is required; an **omission error** occurs when the user does not shoot when a response is required; and an **inhibition error** occurs when the user shoots the wrong duck or responds to a word that requires no action. The application maintains separate commission and inhibition counters. Because the descriptions of commission and inhibition overlap conceptually, the exact code-level conditions that distinguish their counters should be checked against the Unity implementation before making a more precise technical claim.
 
-![Results screen](screenshots/results-screen.png)
+<img width="937" height="558" alt="Screenshot 2026-11-23 at 6 52 48 PM" src="https://github.com/user-attachments/assets/76768b42-514e-44ed-a314-14c96e8a4974" />
 
 ## Screenshots
 
 ### Start screen
 
-![Start screen](screenshots/start-screen.jpg)
+<img width="1218" height="606" alt="WhatsApp Image 2026-11-22 at 17 04 18 (1)" src="https://github.com/user-attachments/assets/846dda78-66cb-4a56-a32a-e13bf92f1247" />
 
 ### Mode selection
 
-![Mode selection](screenshots/mode-selection.jpg)
+<img width="1265" height="611" alt="WhatsApp Image 2026-11-22 at 17 08 51 (1)" src="https://github.com/user-attachments/assets/370b900a-a39a-4a78-ad59-7247a8a6f6ae" />
 
 ### Basic instructions
 
-![Basic instructions](screenshots/basic-instructions.jpg)
+<img width="1253" height="607" alt="WhatsApp Image 2026-11-22 at 17 09 47" src="https://github.com/user-attachments/assets/6166aacf-08fd-4c79-ba8f-76d907a6bc5c" />
 
 ### Advanced instructions
 
-![Advanced instructions](screenshots/advanced-instructions.jpg)
+<img width="1270" height="599" alt="WhatsApp Image 2026-11-22 at 17 57 59" src="https://github.com/user-attachments/assets/0c957323-2efe-42d0-a6d6-f1f921721d5f" />
 
 ### Assessment in progress
 
-<!-- TODO: Add a screenshot showing the active assessment, including the colored ducks during the audio task. -->
+[agregar screen de heidi]
 
 ### Results
 
-![Results](screenshots/results-screen.png)
+<img width="937" height="558" alt="Screenshot 2026-11-23 at 6 52 48 PM" src="https://github.com/user-attachments/assets/d7341af6-a637-49d5-b828-f0c8b69a27e1" />
 
 ## Figma prototype
 
 The Figma prototype represents the complete main flow: start screen, mode selection, Basic instructions, Advanced instructions, assessment screen, and results screen.
 
-[Open the Nepsy Test Figma prototype](https://www.figma.com/design/yFqMirPqeeeYdRU2VKNOVN/HCI-Final-Project?node-id=0-1&t=xXbdvt43P9nuFRRg-1)
+https://www.figma.com/design/yFqMirPqeeeYdRU2VKNOVN/HCI-Final-Project?node-id=0-1&t=xXbdvt43P9nuFRRg-1
 
 ## Requirements and execution
 
