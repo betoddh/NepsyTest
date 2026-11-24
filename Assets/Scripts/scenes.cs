@@ -14,9 +14,9 @@ public class scenes : MonoBehaviour
     public TMP_Text commission;
     public TMP_Text omission;
     public TMP_Text inihibition;
+    public TMP_Text time;
     public Button startBtn;
     private int sceneNumber;
-    private int correctAns;
 
     void Update()
     {
@@ -30,7 +30,7 @@ public class scenes : MonoBehaviour
     {
         instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the RED duck. When you hear any other word, do nothing. To shoot, press the trigger.";
         sceneNumber = 0;
-        correctAns = 30;
+        GlobalVariables.posibleCorrect = 30;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
         scenesPanel.SetActive(false);
@@ -41,6 +41,7 @@ public class scenes : MonoBehaviour
     {
         instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the YELLOW duck. When you hear the word YELLOW, you must shoot the RED duck. Finally, when you hear the word BLUE, you must shoot the BLUE duck. When you hear any other word, do nothing. To shoot, press the trigger.";
         sceneNumber=2;
+        GlobalVariables.posibleCorrect = 36;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
         scenesPanel.SetActive(false);
@@ -68,10 +69,18 @@ public class scenes : MonoBehaviour
 
     private void finalmenu()
     {
-        correct.text=GlobalVariables.correct +"/"+correctAns;
+        correct.text=GlobalVariables.correct +"/" + GlobalVariables.posibleCorrect;
         commission.text=GlobalVariables.comi+ "";
         omission.text=GlobalVariables.omisi + "";
         inihibition.text=GlobalVariables.inhi + "";
+        if (GlobalVariables.time == -1)
+        {
+            time.text = "No time reaction";
+        }
+        else
+        {
+            time.text = GlobalVariables.time + " seconds";
+        }
 
         resultPanel.SetActive(true);
     }

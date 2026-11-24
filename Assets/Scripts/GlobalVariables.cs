@@ -21,6 +21,8 @@ public static class GlobalVariables
     public static bool gameFinished = false;
 
     public static bool finishTime = false;
+
+    public static int posibleCorrect = 0;
     //Codigo Dubin
 
 }
