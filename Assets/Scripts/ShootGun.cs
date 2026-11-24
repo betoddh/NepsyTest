@@ -67,11 +67,7 @@ public class ShootGun : MonoBehaviour
                 GlobalVariables.comi += 1;
                 Debug.Log($"amount Comision: {GlobalVariables.comi}");
             }
-            else if(GlobalVariables.isRed && !SameColor(c, new Color(1f, 0, 0)) && GlobalVariables.caseA)
-            {
-                GlobalVariables.omisi += 1;
-                Debug.Log($"amount omision: {GlobalVariables.omisi}");
-            }
+            
         }
 
         if (hit.collider.CompareTag("Smash"))
