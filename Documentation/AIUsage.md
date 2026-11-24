@@ -1,34 +1,38 @@
-AI Usage and Authorship
-Project: Nepsy Test
-Status: Documentation template. 
+# AI Usage Declaration
 
-1. AI use declaration
-The team used AI tools for the purposes listed below. All project members remain responsible for the submitted work and must be able to explain the design, implementation, research, testing, and documentation.
+## 1. AI tool used
 
-Declared AI level: AI level 1
+| Tool | Purpose |
+|---|---|
+| ChatGPT | Assistance with organizing and drafting the Markdown documentation templates and sections for the project repository. |
 
-2. AI tools used
-AI tool	Purpose	Part of the project where it was used	Output used	How the team checked, modified, or rejected the output
-ChatGPT (OpenAI)	Assistance creating the initial structure and wording of the project documentation templates.	Initial drafts of README.md, DesignJustification.md, UserResearch.md, UserTesting.md, and AIUsage.md.	A proposed organization and placeholder text based on the course presentation.	
+## 2. How AI was used
 
-3. Verification and human contribution
-The team reviewed AI-assisted material before including it in the project. The review process included:
-- Comparing generated suggestions with the actual Unity application and the final Figma prototype.
-- Checking technical instructions by running or testing them where applicable.
-- Checking research claims against the team's actual participant responses, observations, and source materials.
-- Editing or removing suggestions that were inaccurate, unsupported, unsuitable for the target users, or inconsistent with the implemented application.
-- Ensuring that each team member understands the submitted work and can explain their own contribution.
+The course project brief identifies the project as **AI Level 1**. Within that scope, the team used ChatGPT only as a writing and documentation aid. Its contribution was limited to helping structure the required Markdown documents and suggesting templates or section organization for:
 
-4. AI-generated content not used or rejected
-[Describe significant AI suggestions or generated content that the team did not use, and briefly explain why. If there was no relevant rejected output, state that.]
+- `README.md`
+- `DesignJustification.md`
+- `UserResearch.md`
+- `UserTesting.md`
+- `AIUsage.md`
 
-5. Team contributions and authorship
-Team member	Main responsibilities	AI-assisted work reviewed or modified
-[Name]	[Specific individual contribution]	[What they reviewed or modified]
-[Name]	[Specific individual contribution]	[What they reviewed or modified]
-[Name]	[Specific individual contribution]	[What they reviewed or modified]
+The team provided the project information and reviewed the generated documentation. The content was checked and revised to match the actual application, the research and testing activities reported by the team, the available screenshots, and the course documentation requirements.
 
+## 3. Work completed without AI
 
-6. Statement of responsibility
-The team is responsible for the accuracy, functionality, and originality of the submitted project. AI-generated suggestions are treated as assistance rather than as a substitute for the team's understanding, decisions, implementation, or verification. Every team member should be able to explain the work associated with their contribution during the individual defense.
-Before submission: Check this declaration against the course's AI policy and the tools actually used by every team member. Do not leave out tools or claim a verification step that did not happen.
+The following project work was completed by the team without AI-generated content or assets:
+
+- The Figma prototype and its visual design.
+- The Unity project and application implementation.
+- The VR interaction and shooting mechanics.
+- The audio and timer implementation.
+- The response counting functionality.
+- The visual elements used in the application.
+
+ChatGPT did not generate code that was integrated into Unity. It was not used to create the Figma prototype, graphics, game assets, audio, or other application content.
+
+## 4. Human review and responsibility
+
+The team reviewed the documentation suggestions and checked the resulting content against what was actually implemented and completed. Unsupported assumptions were excluded or identified as limitations. The team remains responsible for the accuracy of the repository, understands the submitted work, and can explain the design and implementation decisions.
+
+The use of AI was limited to documentation support. The application design and development remain the team's own work.
