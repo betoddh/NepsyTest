@@ -4,26 +4,27 @@
 
 Nepsy Test is a Virtual Reality application developed for the Meta Quest headset. Its purpose is to support psychologists in monitoring the progress of patients with ADHD through an interactive cognitive assessment activity.
 
-The application presents users with colored birds and auditory instructions. Users must identify the spoken words and respond by shooting the corresponding birds using the VR controller's trigger.
+The application presents users with red, green, and blue birds alongside auditory instructions. Users must listen to the spoken words and follow specific color-association rules by shooting the corresponding birds using the VR controller's trigger.
 
-The test includes two difficulty modes, Basic and Advanced, which require users to follow different word-color association rules.
+The assessment includes two difficulty modes, Basic and Advanced, each requiring users to follow different response rules.
 
 ## Problem Statement
 
-Psychologists need tools that allow them to assess and monitor different aspects of their patients' performance over time. Nepsy Test explores the use of Virtual Reality as an interactive environment for conducting a structured cognitive assessment activity.
+Psychologists need tools that allow them to assess and monitor their patients' performance. Nepsy Test explores the use of Virtual Reality as an interactive environment for conducting a structured cognitive assessment activity.
 
 ## Target Users
 
-- **Primary users:** Psychologists who use the application to conduct assessments and review patient performance.
+- **Primary users:** Psychologists who administer the assessment and review the results.
 - **Participants:** Individuals with ADHD who complete the assessment using a Meta Quest headset.
 
 ## Main Features
 
 - Virtual Reality experience designed for Meta Quest.
-- Two test modes: Basic and Advanced.
-- Audio-based instructions.
+- Two assessment modes: Basic and Advanced.
+- Audio-based instructions and stimuli.
+- Three visual stimulus colors: red, green, and blue.
 - Interactive shooting mechanics using the VR controller trigger.
-- Colored birds that serve as visual stimuli.
+- Automatic test progression through a sequence of audio stimuli.
 - Results screen displaying performance indicators.
 
 ## Application Flow
@@ -32,11 +33,12 @@ Psychologists need tools that allow them to assess and monitor different aspects
 2. **Mode Selection:** The user chooses between Basic Mode and Advanced Mode.
 3. **Instructions:** The application displays the instructions for the selected mode.
 4. **Test Execution:** The user listens to audio instructions and responds to the colored birds using the controller trigger.
-5. **Results:** The application displays the assessment results.
+5. **Test Completion:** The assessment ends automatically when all audio stimuli have been played.
+6. **Results:** The application displays a summary of the user's performance.
 
 ## Assessment Results
 
-At the end of the test, the application displays the following indicators:
+At the end of the assessment, the application displays the following indicators:
 
 - Total correct responses
 - Total commission errors
@@ -44,9 +46,11 @@ At the end of the test, the application displays the following indicators:
 - Total inhibition errors
 - Total time
 
+The results are displayed on the final screen and are manually recorded by the psychologist. The application does not currently provide persistent result storage.
+
 ## Controls
 
-The user interacts with the application through the Meta Quest controllers. The trigger is used to shoot the ducks during the assessment.
+The user interacts with the application through the Meta Quest controllers. The trigger is used to shoot the birds during the assessment.
 
 ## Installation and Execution
 
@@ -54,4 +58,4 @@ The user interacts with the application through the Meta Quest controllers. The 
 
 ## Screenshots
 
-[Agregar los screens de figma o unity]
+[Agregar screens de figma o unity]
