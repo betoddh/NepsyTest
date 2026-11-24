@@ -158,6 +158,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2918931811916278762, guid: ece270ae35849004cba77f7c1adee884, type: 3}
+      propertyPath: m_text
+      value: Advanced
+      objectReference: {fileID: 0}
     - target: {fileID: 2946800593566427282, guid: ece270ae35849004cba77f7c1adee884, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -1283,11 +1287,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1267965613388650355, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.0177266
+      value: 0.024306953
       objectReference: {fileID: 0}
     - target: {fileID: 1267965613388650355, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.017799407
+      value: 0.2501244
       objectReference: {fileID: 0}
     - target: {fileID: 1470279098769358944, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_IsActive
@@ -2409,7 +2413,7 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 1, a: 0}
   - {r: 1, g: 1, b: 0, a: 0}
-  maxDucks: 6
+  maxDucks: 7
   minPerColor: 2
   spawnInterval: 2
 --- !u!4 &1383565017

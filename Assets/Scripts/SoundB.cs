@@ -93,9 +93,9 @@ public class SoundB : MonoBehaviour
             {
                 GlobalVariables.isBlue = true;
             }
-            else if (wordRand[i] == "red")
+            else if (wordRand[i] == "yellow")
             {
-                GlobalVariables.isYellow = true;
+                GlobalVariables.isRed = true;
             }
 
             audioSource.PlayOneShot(audios[wordRand[i]]);

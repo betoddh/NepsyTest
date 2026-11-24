@@ -29,7 +29,7 @@ public class scenes : MonoBehaviour
 
     public void basic()
     {
-        instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the RED duck. When you hear any other word, do nothing. To shoot, press the trigger.";
+        instructions.text = "Let's play a game! You will hear a word. If you hear \"RED\", shoot the red duck. If you hear another word, like \"dog\" or \"blue\", do nothing. Just wait. \n To shoot, squeeze the trigger with your finger. Ready? Let's go!";
         GlobalVariables.posibleCorrect = 30;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
@@ -39,7 +39,7 @@ public class scenes : MonoBehaviour
 
     public void advance()
     {
-        instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the YELLOW duck. When you hear the word YELLOW, you must shoot the RED duck. Finally, when you hear the word BLUE, you must shoot the BLUE duck. When you hear any other word, do nothing. To shoot, press the trigger.";
+        instructions.text = "Let's play a new game! You will hear a word. If you hear \"RED\", shoot the YELLOW duck. If you hear \"YELLOW\", shoot the RED duck. If you hear \"BLUE\", shoot the BLUE duck. If you hear another word, like \"dog\" or \"cat\", do nothing. Just wait. To shoot, squeeze the trigger with your finger. Ready? Let's go!";
         GlobalVariables.posibleCorrect = 36;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
