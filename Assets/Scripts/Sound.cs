@@ -78,6 +78,8 @@ public class Sound : MonoBehaviour
             audioSource.PlayOneShot(audios[wordRand[i]]);
             yield return new WaitForSeconds(2f);
         }
+        GlobalVariables.gameFinished = true;
+        GlobalVariables.finishTime = true;
     }
 
 }

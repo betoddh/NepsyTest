@@ -8,13 +8,29 @@ public class scenes : MonoBehaviour
     public GameObject startPanel;
     public GameObject scenesPanel;
     public GameObject instructionsPanel;
+    public GameObject resultPanel;
     public TMP_Text instructions;
+    public TMP_Text correct;
+    public TMP_Text commission;
+    public TMP_Text omission;
+    public TMP_Text inihibition;
     public Button startBtn;
     private int sceneNumber;
+    private int correctAns;
+
+    void Update()
+    {
+        if (GlobalVariables.gameFinished)
+        {
+            finalmenu();
+            GlobalVariables.gameFinished = false;
+        }
+    }
     public void basic()
     {
         instructions.text = "During this test, you will hear different words. When you hear the word RED, you must shoot the RED duck. When you hear any other word, do nothing. To shoot, press the trigger.";
         sceneNumber = 0;
+        correctAns = 30;
         startBtn.onClick.AddListener(toScene);
         instructionsPanel.SetActive(true);
         scenesPanel.SetActive(false);
@@ -48,5 +64,34 @@ public class scenes : MonoBehaviour
         startPanel.SetActive(false);
         GlobalVariables.startSound = true;
         GlobalVariables.gameStarted = true;
+    }
+
+    private void finalmenu()
+    {
+        correct.text=GlobalVariables.correct +"/"+correctAns;
+        commission.text=GlobalVariables.comi+ "";
+        omission.text=GlobalVariables.omisi + "";
+        inihibition.text=GlobalVariables.inhi + "";
+
+        resultPanel.SetActive(true);
+    }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(0);
+        GlobalVariables.isRed = false;
+        GlobalVariables.isYellow = false;
+        GlobalVariables.isBlue = false;
+
+        GlobalVariables.correct = 0;
+        GlobalVariables.comi = 0;
+        GlobalVariables.omisi = 0;
+        GlobalVariables.inhi = 0;
+
+        GlobalVariables.isCorrect = false;
+
+        GlobalVariables.caseA = false;
+
+        GlobalVariables.caseB = false;
     }
 }
